@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-    //Creating list of products
+        //Creating list of products
         List<Product> list = new ArrayList<>();
         list.add(new Product("Book", 30, true, new Date())); Thread.sleep(25);
         list.add(new Product("Toy", 200, false, new Date())); Thread.sleep(25);
@@ -33,7 +33,7 @@ public class Main {
         System.out.println("Task 1.2, Books & price more than 250");
         Stream<Product> stream = list.stream();
         stream.filter(x -> x.getType() == "Book" && x.getPrice()>=250)
-              .forEach(System.out::println);
+                .forEach(System.out::println);
     }
     //2.2 Реалізувати метод отримання всіх продуктів як списку, категорія яких еквівалентна “Book” і з можливістю застосування знижки.
     //Фінальний список повинен містити продукти з застосованою знижкою 10%.
@@ -41,8 +41,8 @@ public class Main {
         System.out.println("Task 1.2, Books with discount");
         Stream<Product> stream = list.stream();
         stream.filter(x -> x.getType() == "Book" && x.discount)
-              .peek(x -> x.setPrice(x.getPrice()*0.9))
-              .forEach(System.out::println);
+                .peek(x -> x.setPrice(x.getPrice()*0.9))
+                .forEach(System.out::println);
     }
 
     //3.2 Реалізувати метод отримання найдешевшого продукту з категорії “Book”
@@ -53,8 +53,8 @@ public class Main {
         System.out.println("Task 1.3, Cheapest book");
         Stream<Product> stream = list.stream();
         Product cheapestBook = stream.filter(x -> x.getType() == "Book")
-                                     .min(comparator)
-                                     .orElseThrow(Exception::new);
+                .min(comparator)
+                .orElseThrow(Exception::new);
         System.out.println(cheapestBook);
     }
 
