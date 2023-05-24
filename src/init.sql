@@ -35,6 +35,17 @@ create table Schedule (
     CONSTRAINT fk_lessons FOREIGN KEY(lessons) REFERENCES Lesson(id)
 );
 
+--Fix many-to-many link from Homework24
+create table Schedule_Lesson (
+    id serial not null,
+    schedule_id int not null,
+    lesson_id int not null,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_schedule FOREIGN KEY(schedule_id) REFERENCES Schedule(id),
+    CONSTRAINT fk_lesson FOREIGN KEY(lesson_id) REFERENCES Lesson(id)
+);
+
+
 /*
 insert into Homework (name, description)
 	values
@@ -58,5 +69,11 @@ insert into Schedule (name, lessons)
 ('Start2',1),
 ('Main',3),
 ('Finish',4)
+;
+insert into Schedule_Lesson (schedule_id, lesson_id)
+    values
+(1,2),
+(1,1),
+(2,1)
 ;
 */
