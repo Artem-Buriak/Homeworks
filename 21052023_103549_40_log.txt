@@ -1,0 +1,2 @@
+[Sun May 21 10:35:49 EEST 2023][INFO] Message: [Test row after exception 99]
+[Sun May 21 10:35:49 EEST 2023][INFO] Message: [Test row 100]
